@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'Home.dart';
 
-void main() => runApp(new MyApp());
+void main() {
+  runApp(new MaterialApp(
+    home: new MyHomePage(),
+    routes: <String, WidgetBuilder> {
+      "/Homepage": (BuildContext context) => new Homepage()
+    }
+  ));
+}
 
-class MyApp extends StatelessWidget {
+/*class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -12,7 +20,7 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
-}
+}*/
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -83,7 +91,15 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
                         ),
                         keyboardType: TextInputType.text,
                         obscureText: true,
-                      )
+                      ),
+                      new Padding(padding: const EdgeInsets.only(top: 20.0)),
+                        new MaterialButton(
+                          onPressed: () {Navigator.of(context).pushNamed("/Homepage");},
+                          color: Colors.amber,
+                          textColor: Colors.deepOrangeAccent,
+                          child: new Text("Login"),
+                          splashColor: Colors.deepOrangeAccent,
+                        )
                     ],
               ),
                   ),
