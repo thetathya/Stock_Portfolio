@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'Home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -31,7 +32,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin{
 
-  //Creating Animation for App Icon
+  //***************Creating Animation for App Icon*****************
   AnimationController _iconAnimationController;
   Animation<double> _iconAnimation;
 
@@ -49,15 +50,32 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
     _iconAnimation.addListener(()=> this.setState((){}));
     _iconAnimationController.forward();
   }
-  // Creating Animation Ends
+  // #####################Creating Animation Ends#########################
 
-  //Authentication For Login
+  //*********************Authentication For Login***************************
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  
+  final GoogleSignIn googleSignIn = new GoogleSignIn();
 
+  Future<FirebaseUser> _signIn() async{
+    GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
+    GoogleSignInAuthentication googleSignInAuthentication = await googleSignInAccount.authentication;
 
-  //Authentication functions Ends
+    FirebaseUser user = await _auth.signInWithGoogle(
+        idToken: googleSignInAuthentication.idToken,
+        accessToken: googleSignInAuthentication.accessToken);
+    
+    print("User: ${user.displayName}");
+    return user;
+  }
+
+  void _signOut(){
+    googleSignIn.signOut();
+
+    print("User signed out");
+  }
+
+  //#####################Authentication functions Ends##########################
 
   @override
   Widget build(BuildContext context) {
@@ -106,6 +124,10 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
                       new Padding(padding: const EdgeInsets.only(top: 20.0)),
                         new MaterialButton(
                           onPressed: () {Navigator.of(context).pushNamed("/Homepage");},
+//                          onPressed: () => _signIn()
+//                              .then((FirebaseUser user) => print(user))
+//                              .catchError((e) => print(e))
+//                              .whenComplete(() {Navigator.of(context).pushNamed("/Homepage");}),
                           color: Colors.amber,
                           textColor: Colors.deepOrangeAccent,
                           child: new Text("Login"),
