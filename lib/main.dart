@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'Home.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 void main() {
   runApp(new MaterialApp(
@@ -29,6 +31,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin{
 
+  //Creating Animation for App Icon
   AnimationController _iconAnimationController;
   Animation<double> _iconAnimation;
 
@@ -46,7 +49,15 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
     _iconAnimation.addListener(()=> this.setState((){}));
     _iconAnimationController.forward();
   }
+  // Creating Animation Ends
 
+  //Authentication For Login
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  
+
+
+  //Authentication functions Ends
 
   @override
   Widget build(BuildContext context) {

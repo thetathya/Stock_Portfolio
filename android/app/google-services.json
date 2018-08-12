@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1036711323986",
+    "firebase_url": "https://stock-portfolio-b9517.firebaseio.com",
+    "project_id": "stock-portfolio-b9517",
+    "storage_bucket": "stock-portfolio-b9517.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1036711323986:android:5e5414d37e4cae77",
+        "android_client_info": {
+          "package_name": "com.epitome.stockportfolio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1036711323986-352ools139hsitp2beik3s3srcdnfpon.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.epitome.stockportfolio",
+            "certificate_hash": "8476611a1c0ba59ac5af190bc595ecf8b9793566"
+          }
+        },
+        {
+          "client_id": "1036711323986-sd8q1h57a3rp8d05gtdsqgek6p2mvlfj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvrM3KJg7L0atgWyPvRDC_l_XQlDqOt2s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1036711323986-sd8q1h57a3rp8d05gtdsqgek6p2mvlfj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
