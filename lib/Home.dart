@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:test1/Authentications.dart';
+import 'Login.dart';
 
 class Homepage extends StatelessWidget {
   @override
@@ -38,7 +40,11 @@ class Homepage extends StatelessWidget {
               new ListTile(
                 title: new Text("Cancel"),
                 trailing: new Icon(Icons.cancel),
-                onTap: () => Navigator.pop(context),
+                onTap: () {
+                  Navigator.of(context).pop();
+                  Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new MyHomePage()));
+                  //googleSignIn.signOut();
+                },
               ),
             ],
           ),
